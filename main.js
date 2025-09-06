@@ -1,4 +1,4 @@
-const listItems = document.querySelectorAll(".game .container ul li");
+let listItems = document.querySelectorAll(".game .container ul li");
 let flippedCards = [];
 let pre = 0;
 let i = 0;
@@ -21,6 +21,47 @@ function toggleBeforeEffect() {
     },1000);
 }
 
+function shuffle(array)
+{
+    let current = array.length;
+    while (current > 0)
+    {
+        let random = Math.floor(Math.random() * current);
+        current--;
+
+        const tmp = array[current];
+        array[current] = array[random];
+        array[random] = tmp;
+    }
+}
+
+function makeCardGrid(column, row)
+{
+    let card_grid = document.querySelector(".game .container ul");
+    
+    let array = [];
+    const max = column * row;
+    const min = 0;
+    const image_width = (Number(getComputedStyle(card_grid).width.replace("px", "")) / column) - 10 * column;
+
+    while (array.length < max)
+    {
+        array.push(array.length);
+    }
+    shuffle(array);
+    const count = column * row / 2;
+    for (let i = 0; i < max; i++)
+    {
+        card_grid.innerHTML += `<li><img src="./image/photo-${Math.floor(array[i] % count) + 1}.png" alt=""></li>`;
+    }
+    let images = document.querySelectorAll('.game .container img');
+    images.forEach(img => {
+        img.style.width = (image_width) + "px";
+    });
+    listItems = document.querySelectorAll(".game .container ul li")
+}
+
+makeCardGrid(4, 4)
 
 listItems.forEach(function(e) {
     e.addEventListener("click", function() {
@@ -72,3 +113,4 @@ listItems.forEach(function(e) {
         }
     });
 });
+
