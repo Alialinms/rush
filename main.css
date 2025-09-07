@@ -2,7 +2,7 @@
 :root {
     --main-color:#10cab7;
     --secondary-color:#2c4755;
-    --section-padding: 60px;
+    --section-padding: 30px;
     --section-background:#f6f6f6;
 }
 /* end variables */
@@ -46,6 +46,7 @@ html { scroll-behavior: smooth;}
     font-weight: 800;
     letter-spacing: -3px;
 }
+
 .ready {
     background-color: var(--section-background);
 }
@@ -57,22 +58,35 @@ html { scroll-behavior: smooth;}
     letter-spacing: -3px;
     padding-top: 10px;
 }
+
 .ready ul {
     list-style-type: none;
     display: flex;
     justify-content: center;
     padding-bottom: 10px;
 }
+
 .ready ul li {
     padding: 10px;
     border: 4px, solid, #2c4755;
     margin: 0 30px;
     border-radius: 20px;
     color: #ecc00d;
+    cursor: pointer;
+}
+
+.ready ul li:hover {
+    transition: background-color 0.5s ease-in-out;
+    background-color: #10cab7;
+}
+
+.choose {
+    background-color: #098276;
 }
 
 .question {
-    padding-top: 50px;
+    padding-top: 30px;
+    display: none;
 }
 
 .question .container p {
@@ -118,12 +132,29 @@ html { scroll-behavior: smooth;}
     padding: var(--section-padding);
 }
 
+.game .container {
+    position: relative;
+}
+
+.game .container span {
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    border: 3px solid blue;
+    border-radius: 20%;
+    padding: 25px;
+    font-size: 50px;
+    color: #777;
+    display: none;
+}
+
 .game .container ul {
     display: flex;
     list-style-type: none;
-    justify-content: center;
+    /* justify-content: center; */
     flex-wrap: wrap;
-    width: 1100px;
+    margin: 0 auto;
     padding: 0;
 }
 .game .container ul li{
@@ -179,4 +210,20 @@ html { scroll-behavior: smooth;}
     border: 4px solid blue;
     border-radius: 12px;
 }
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #10cab7;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    display: none;
+    z-index: 999;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
 /* end compoents */
