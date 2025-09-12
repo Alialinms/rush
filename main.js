@@ -226,6 +226,7 @@ function startTimer() {
             clearInterval(countdown);
             timerDisplay.style.display="none";
             document.getElementById("loss-popup").style.display = "block";
+            sultan = 0;
         }
     }, 1000);
 }
